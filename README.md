@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Globetrotter
 
-## Getting Started
+**Globetrotter** es una aplicación web para gestionar reservas de viajes, construida con **Next.js 14** (App Router), **TypeScript**, **Tailwind CSS**, y **React Hook Form**. Permite a los usuarios completar un flujo de reserva en cuatro pasos: ingresar detalles del viaje, información de viajeros, servicios adicionales y confirmación de la reserva. La aplicación utiliza un contexto global (`ReservationContext`) para gestionar el estado.
 
-First, run the development server:
+## Características
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Flujo de Reserva en Múltiples Pasos**:
+  - **Paso 1**: Detalles del viaje (destino, clase de vuelo, fechas).
+  - **Paso 2**: Información de viajeros (nombre, documento, mascotas, equipaje extra).
+  - **Paso 3**: Servicios adicionales (seguro de viaje, asientos preferenciales, asistencia especial).
+  - **Paso 4**: Confirmación de la reserva con un resumen detallado.
+- **Estado Global**: Usa `ReservationContext` para gestionar los datos de la reserva entre pasos.
+- **Formateo Automático**: Configurado con **Prettier** para mantener un código consistente, incluyendo ordenamiento de clases de Tailwind CSS.
+- **Interfaz Responsive**: Estilizada con **Tailwind CSS** para una experiencia de usuario fluida en dispositivos móviles y de escritorio.
+- **Validaciones de Formularios**: Implementadas con **React Hook Form** para una mejor experiencia de usuario.
+- **Componentes Reutilizables**: Incluye componentes personalizados (`Button`, `Card`, `Input`, etc.) en `components/`.
+- **Indicador de Progreso**: Un componente `StepIndicator` muestra el progreso del usuario en el flujo de reserva.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tecnologías
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js 14** (App Router)
+- **TypeScript**
+- **Tailwind CSS**
+- **React Hook Form**
+- **Lucide React** (íconos)
+- **Headless UI** (componentes accesibles como Switch y Dialog)
+- **Prettier** (formateo de código)
+- **Vercel** (despliegue)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Requisitos Previos
 
-## Learn More
+- **Node.js**: Versión 18.x o superior
+- **Yarn**: Yarn Berry
 
-To learn more about Next.js, take a look at the following resources:
+## Instalación
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clona el repositorio:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   git clone https://github.com/dardac/avilatek-frontend
+   cd avilatek-frontend
+   ```
 
-## Deploy on Vercel
+2. Instala las dependencias:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   yarn
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Ejecución Local
+
+1. Inicia el servidor de desarrollo:
+
+   ```bash
+   yarn dev
+   ```
+
+2. Abre la aplicación en tu navegador:
+
+   ```
+   http://localhost:3000
+   ```
+
+   - La página inicial (`/`) redirige automáticamente a `/step-1`.
+
+## Scripts Disponibles
+
+- `yarn dev`: Inicia el servidor de desarrollo.
+- `yarn build`: Genera una build de producción.
+- `yarn start`: Inicia la aplicación en modo producción.
+- `yarn lint`: Ejecuta ESLint para verificar el código.
+- `yarn format`: Formatea todos los archivos con Prettier.
+
+## Despliegue
+
+La aplicación está configurada para desplegarse fácilmente en **Vercel**:
+
+1. Despliega:
+   ```bash
+   git push origin main
+   ```
+   Vercel detectará los cambios y desplegará automáticamente.
+
+2. Verifica la URL de producción `https://avilatek-frontend-chi.vercel.app`.
+
+## Mejoras recomendadas, adicionales a lo requerido
+- **Protección de Rutas**: Agregar un middleware (`middleware.ts`) y validaciones del lado del cliente (cookies) para asegurar que los usuarios no puedan acceder a pasos posteriores sin completar los anteriores.
+- **Envío de reserva**: Enviar al correo electrónico del usuario(previamente obtenido) los detalles de la reserva.
+- **Mostrar totales**: Mostrar en la confirmación, el total en USD de la reserva (con mascotas, maletas y servicios adicionales).
