@@ -1,11 +1,14 @@
-import { Header } from "@/components";
-import { Home } from "@/pages/home";
+"use client";
 
-export default function Index() {
-  return (
-    <div>
-      <Header />
-      <Home />
-    </div>
-  );
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+
+export default function Home() {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push("/step-1");
+  }, [router]);
+
+  return null;
 }
