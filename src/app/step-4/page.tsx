@@ -21,13 +21,12 @@ const ConfirmationPage = () => {
   const router = useRouter();
   const [showConfirmModal, setShowConfirmModal] = useState(false);
 
+  console.log('RESERVATION', reservationData);
+
   const formatDate = (dateString: string) => {
     if (!dateString) return "No especificado";
-    return new Date(dateString).toLocaleDateString("es-ES", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
+    const [year, month, day] = dateString.split("-");
+    return `${day}/${month}/${year}`;
   };
 
   const calculateAge = (dateOfBirth: string): number => {

@@ -215,7 +215,6 @@ const TripForm = () => {
                 <div className="mt-2 flex flex-wrap gap-4">
                   {[
                     "Económica",
-                    "Económica Premium",
                     "Negocios",
                     "Primera Clase",
                   ].map((flightClass, idx) => (
@@ -231,7 +230,6 @@ const TripForm = () => {
                         value={
                           [
                             "Económica",
-                            "Económica Premium",
                             "Negocios",
                             "Primera Clase",
                           ][idx]

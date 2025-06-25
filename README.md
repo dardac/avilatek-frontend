@@ -85,5 +85,6 @@ La aplicación está configurada para desplegarse fácilmente en **Vercel**:
 
 ## Mejoras recomendadas, adicionales a lo requerido
 - **Protección de Rutas**: Agregar un middleware (`middleware.ts`) y validaciones del lado del cliente (cookies) para asegurar que los usuarios no puedan acceder a pasos posteriores sin completar los anteriores.
-- **Envío de reserva**: Enviar al correo electrónico del usuario(previamente obtenido) los detalles de la reserva.
+- **Envío de reserva**: Enviar al correo electrónico del usuario (previamente obtenido) los detalles de la reserva.
 - **Mostrar totales**: Mostrar en la confirmación, el total en USD de la reserva (con mascotas, maletas y servicios adicionales).
+- **Manejo de data global**: Se utilizó context solo a modo de prueba, lo mejor en este caso sería utilizar Redux, Zustand o similar.
